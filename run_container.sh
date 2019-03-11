@@ -32,9 +32,15 @@ else
 
 
 
-    echo -e "Who are you?\n1.胡建星(jhu)\n2.王铎行(hhhh)\n3.赖俊勇(wllg)\n4.夏虓林(ex2l)\n5.杜子腾(streamer)\n6.其他\n"
+    echo -e "Who are you?\n0.chem\n1.胡建星(jhu)\n2.王铎行(hhhh)\n3.赖俊勇(wllg)\n4.夏虓林(ex2l)\n5.杜子腾(streamer)\n6.其他\n"
     read -p "Type in your index and press enter: " IDX_USER
     case $IDX_USER in
+    [0])
+        P_TENSORBOARD=2206
+        P_SSH=2222
+        P_JUPYTER=2288
+        USER_NAME="chem"
+        ;;
     [1])
         P_TENSORBOARD=11106
         P_SSH=11122
