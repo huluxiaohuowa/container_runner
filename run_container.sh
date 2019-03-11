@@ -92,7 +92,7 @@ else
             echo "Deleting container $CON"
             docker rm -f $CON
             echo "Done."
-            echo "Starting new contaner $CON"
+            echo "Starting the new container $CON"
             $RUN
             ;;
         [nN][oO]|[nN])
