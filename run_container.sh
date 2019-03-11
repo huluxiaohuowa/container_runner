@@ -7,8 +7,8 @@ LATEST=`cat ~/docker_latest_temp.txt | grep -o "[0-9]\+\.[0-9]\+\.[0-9]\+"`
 
 if [ $# -eq 0 ]
 then
-    echo "Usage: bash $0 image_version"
-    echo "e.g. >> $ sudo bash $0 1.0.4"
+    echo "Usage: docstart image_version"
+    echo "e.g. >> $ sudo docstart 1.0.4"
 else
     case $1 in
     $LATEST)
