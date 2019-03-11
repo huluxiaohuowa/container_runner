@@ -15,7 +15,7 @@ else
         VERSION=$LATEST
         ;;
     *)
-    echo -e "\nYour version $1 dose not mathe the newest version: $LATEST"
+    echo -e "\nYour version $1 dose not match the newest version: $LATEST"
     read -p "Use the latest image version? (y/n): " U_LATEST
 
         case $U_LATEST in
