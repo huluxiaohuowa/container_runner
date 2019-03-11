@@ -7,7 +7,7 @@ LATEST=`cat ~/docker_latest_temp.txt | grep -o "[0-9]\+\.[0-9]\+\.[0-9]\+"`
 
 if [ $# -eq 0 ]
 then
-    echo "Usage: docstart image_version"
+    echo -e "\n\nUsage: docstart image_version"
     echo "e.g. >> $ sudo docstart 1.0.4"
 else
     case $1 in
@@ -15,7 +15,7 @@ else
         VERSION=$LATEST
         ;;
     *)
-    echo -e "Your version $1 dose not mathe the newest version: $LATEST\n"
+    echo -e "\nYour version $1 dose not mathe the newest version: $LATEST"
     read -p "Use the latest image version? (y/n): " U_LATEST
 
         case $U_LATEST in
@@ -32,7 +32,7 @@ else
 
 
 
-    echo -e "Who are you?\n0.chem(chem)\n1.胡建星(jhu)\n2.王铎行(hhhh)\n3.赖俊勇(wllg)\n4.夏虓林(ex2l)\n5.杜子腾(streamer)\n6.其他\n"
+    echo -e "\n\nWho are you?\n0.chem(chem)\n1.胡建星(jhu)\n2.王铎行(hhhh)\n3.赖俊勇(wllg)\n4.夏虓林(ex2l)\n5.杜子腾(streamer)\n6.其他\n"
     read -p "Type in your index and press enter: " IDX_USER
     case $IDX_USER in
     [0])
