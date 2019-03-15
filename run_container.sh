@@ -93,6 +93,7 @@ else
             docker rm -f $CON
             echo "Done."
             echo "Starting the new container $CON"
+            echo "$RUN"
             $RUN
             ;;
         [nN][oO]|[nN])
