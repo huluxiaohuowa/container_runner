@@ -9,8 +9,8 @@ LATEST=`cat ~/docker_latest_temp.txt | grep -o "[0-9]\+\.[0-9]\+\.[0-9]\+" | sor
 
 if [ $# -eq 0 ]
 then
-    echo -e "The latest version of image is $LATEST\n"
-    echo -e "\n\nUsage: docstart image_version"
+    echo -e "\n\nThe latest version of image is $LATEST\n"
+    echo -e "Usage: docstart image_version"
     echo "e.g. >> $ sudo docstart $LATEST"
     read -p "Or you can input your version and press ENTER: " V_IN
 else
