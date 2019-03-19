@@ -8,7 +8,7 @@ if [ $# -eq 0 ]
 then
     echo -e "\n\nUsage: ppp image_version"
     echo "e.g. >> $ ppp 1.0.7"
-    read -p "Or you can input your version: " VERSION
+    read -p "Or you can input your version and press ENTER: " VERSION
 else
     VERSION=$1
 fi
