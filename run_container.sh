@@ -42,9 +42,9 @@ else
         USER_NAME="chem"
         ;;
     1)
-        P_TENSORBOARD=11106
-        P_SSH=11122
-        P_JUPYTER=11188
+        P_TENSORBOARD=10402
+        P_SSH=10400
+        P_JUPYTER=10401
         USER_NAME="jhu"
         ;;
     2)
