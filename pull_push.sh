@@ -1,7 +1,7 @@
 #!/bin/bash
 #created by jach(4@jach.vip)
 
-$YES=y
+YES=y
 
 read -p "Do you want to delete this image after pushing it to the regestry?(y/n)" $K_DEL
 if [ $# -eq 0 ]
@@ -17,6 +17,3 @@ else
     fi
 
 fi
-
-    
-    
