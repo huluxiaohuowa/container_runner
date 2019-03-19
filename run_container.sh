@@ -5,6 +5,7 @@
 LATEST=`cat ~/docker_latest_temp.txt | grep -o "[0-9]\+\.[0-9]\+\.[0-9]\+" | sort -rV |head -n 1`
 
 
+echo -e "The latest version of image is $LATEST\n"
 if [ $# -eq 0 ]
 then
     echo -e "\n\nUsage: docstart image_version"
