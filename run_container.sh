@@ -2,7 +2,7 @@
 #created by jach(4@jach.vip)
 
 `curl -XGET http://192.168.1.141:5000/v2/jecing/tf20/tags/list > ~/docker_latest_temp.txt`
-LATEST=`cat ~/docker_latest_temp.txt | grep -o "[0-9]\+\.[0-9]\+\.[0-9]\+" | head -n 1`
+LATEST=`cat ~/docker_latest_temp.txt | grep -o "[0-9]\+\.[0-9]\+\.[0-9]\+" | sort -rV |head -n 1`
 
 
 if [ $# -eq 0 ]
