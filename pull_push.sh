@@ -10,7 +10,7 @@ then
     echo -e "\n\nThe latest version of image is $LATEST\n"
     echo -e "Usage: ppp image_version"
     echo "e.g. >> $ sudo ppp $LATEST"
-    read -p "Or you can input your version and press ENTER: " V_IN
+    read -p "or you can input your version and press ENTER: " V_IN
 else
     V_IN=$1
 fi
