@@ -91,7 +91,7 @@ esac
 HOST=`hostname`
 CON=$USER_NAME
 NUM_CON=`docker ps -a --format "{{.Names}}" | grep -w $CON -c`
-RUN="nvidia-docker run -d --restart=always -v /home/docker/v/$USER_NAME:/root/jupyter -v /etc/localtime:/etc/localtime:ro -p $P_TENSORBOARD:6006  -p $P_SSH:22 -p $P_JUPYTER:8888 --name $USER_NAME -h $USER_NAME-$HOST 192.168.1.141:5000/jecing/tf20:$VERSION /entrypoint.sh"
+RUN="nvidia-docker run -d --restart=always --pid=host -v /home/docker/v/$USER_NAME:/root/jupyter -v /etc/localtime:/etc/localtime:ro -p $P_TENSORBOARD:6006  -p $P_SSH:22 -p $P_JUPYTER:8888 --name $USER_NAME -h $USER_NAME-$HOST 192.168.1.141:5000/jecing/tf20:$VERSION /entrypoint.sh"
 
 if [ $NUM_CON -ne 0 ]
 then
