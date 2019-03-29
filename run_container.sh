@@ -1,11 +1,14 @@
 #!/bin/bash
 #created by jach(4@jach.vip)
 
+VALID=`curl -XGET http://192.168.1.141:5000/v2/jecing/tf20/tags/list | grep -o "[0-9]\+\.[0-9]\+\.[0-9]\+" | sort -rV`
 LATEST=`curl -XGET http://192.168.1.141:5000/v2/jecing/tf20/tags/list | grep -o "[0-9]\+\.[0-9]\+\.[0-9]\+" | sort -rV | head -n 1`
+
+echo -e "\n\nAvailable versions of images are: \n$VALID\n"
 
 if [ $# -eq 0 ]
 then
-    echo -e "\n\nThe latest version of image is $LATEST\n"
+    echo -e "\nThe latest version of image is $LATEST\n"
     echo -e "Usage: docstart image_version"
     echo "e.g. >> $ sudo docstart $LATEST"
     read -p "Or you can input your version and press ENTER: " V_IN

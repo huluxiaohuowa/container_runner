@@ -1,13 +1,15 @@
 #!/bin/bash
 #created by jach(4@jach.vip)
 
+VALID=`wget -q https://registry.hub.docker.com/v1/repositories/jecing/tf20/tags -O -  | sed -e 's/[][]//g' -e 's/"//g' -e 's/ //g' | tr '}' '\n'  | awk -F: '{print $3}' | sort -rV`
 LATEST=`wget -q https://registry.hub.docker.com/v1/repositories/jecing/tf20/tags -O -  | sed -e 's/[][]//g' -e 's/"//g' -e 's/ //g' | tr '}' '\n'  | awk -F: '{print $3}' | sort -rV | head -n 1`
 
+echo -e "\n\nAvailable versions of images are: \n$VALID\n"
 read -p "Do you want to delete this image after pushing it to the regestry?(y/n)" K_DEL
 
 if [ $# -eq 0 ]
 then
-    echo -e "\n\nThe latest version of image is $LATEST\n"
+    echo -e "\nThe latest version of image is $LATEST\n"
     echo -e "Usage: ppp image_version"
     echo "e.g. >> $ sudo ppp $LATEST"
     read -p "or you can input your version and press ENTER: " V_IN
