@@ -36,6 +36,8 @@ read -p "Use the latest image version? (y/n): " U_LATEST
 esac
 
 
+read -p "Would you like nvidia-smi to be seen in your container? (y/n): " SEEN
+
 
 
 echo -e "\n\n\nWho are you?\n\n0.chem(chem)\n1.胡建星(jhu)\n2.王铎行(hhhh)\n3.赖俊勇(wllg)\n4.夏虓林(ex2l)\n5.杜子腾(streamer)\n6.其他\n"
@@ -94,7 +96,19 @@ esac
 HOST=`hostname`
 CON=$USER_NAME
 NUM_CON=`docker ps -a --format "{{.Names}}" | grep -w $CON -c`
-RUN="nvidia-docker run -d --restart=always -v /home/docker/v/$USER_NAME:/root/jupyter -v /etc/localtime:/etc/localtime:ro -p $P_TENSORBOARD:6006  -p $P_SSH:22 -p $P_JUPYTER:8888 --name $USER_NAME -h $USER_NAME-$HOST 192.168.1.141:5000/jecing/tf20:$VERSION /entrypoint.sh"
+
+
+case $SEEN in
+    [yY][eE][sS]|[yY])
+        RUN="nvidia-docker run -d --pid=host --restart=always -v /home/docker/v/$USER_NAME:/root/jupyter -v /etc/localtime:/etc/localtime:ro -p $P_TENSORBOARD:6006  -p $P_SSH:22 -p $P_JUPYTER:8888 --name $USER_NAME -h $USER_NAME-$HOST 192.168.1.141:5000/jecing/tf20:$VERSION /entrypoint.sh"
+        ;;
+    [nN][oO]|[nN])
+        RUN="nvidia-docker run -d --restart=always -v /home/docker/v/$USER_NAME:/root/jupyter -v /etc/localtime:/etc/localtime:ro -p $P_TENSORBOARD:6006  -p $P_SSH:22 -p $P_JUPYTER:8888 --name $USER_NAME -h $USER_NAME-$HOST 192.168.1.141:5000/jecing/tf20:$VERSION /entrypoint.sh"
+        ;;
+    *)
+esac
+
+# RUN="nvidia-docker run -d --restart=always -v /home/docker/v/$USER_NAME:/root/jupyter -v /etc/localtime:/etc/localtime:ro -p $P_TENSORBOARD:6006  -p $P_SSH:22 -p $P_JUPYTER:8888 --name $USER_NAME -h $USER_NAME-$HOST 192.168.1.141:5000/jecing/tf20:$VERSION /entrypoint.sh"
 
 if [ $NUM_CON -ne 0 ]
 then
@@ -120,5 +134,4 @@ else
 fi
 
 
-    
     
