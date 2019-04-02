@@ -1,7 +1,7 @@
 #!/bin/bash
 #created by jach(4@jach.vip)
 
-VALID=`wget -q https://registry.hub.docker.com/v1/repositories/jecing/tf20/tags -O -  | sed -e 's/[][]//g' -e 's/"//g' -e 's/ //g' | tr '}' '\n'  | awk -F: '{print $3}' | sort -rV`
+VALID=`wget -q https://registry.hub.docker.com/v1/repositories/jecing/tf20/tags -O -  | sed -e 's/[][]//g' -e 's/"//g' -e 's/ //g' | tr '}' '\n'  | awk -F: '{print $3}' | sort -rV | head -n 8` 
 LATEST=`wget -q https://registry.hub.docker.com/v1/repositories/jecing/tf20/tags -O -  | sed -e 's/[][]//g' -e 's/"//g' -e 's/ //g' | tr '}' '\n'  | awk -F: '{print $3}' | sort -rV | head -n 1`
 
 echo -e "\n\nAvailable versions of images are: \n$VALID\n"
