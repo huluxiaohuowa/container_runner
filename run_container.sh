@@ -1,6 +1,7 @@
 #!/bin/bash
 #created by jach(4@jach.vip)
 
+
 VALID=`curl -XGET http://192.168.1.141:5000/v2/jecing/tf20/tags/list | grep -o "[0-9]\+\.[0-9]\+\.[0-9]\+" | sort -rV`
 LATEST=`curl -XGET http://192.168.1.141:5000/v2/jecing/tf20/tags/list | grep -o "[0-9]\+\.[0-9]\+\.[0-9]\+" | sort -rV | head -n 1`
 
