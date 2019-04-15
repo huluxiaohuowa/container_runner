@@ -55,7 +55,7 @@ case $IDX_USER in
     P_TENSORBOARD=10402
     P_SSH=10400
     P_JUPYTER=10401
-    P_CON=10403
+    P_CON=10405
     USER_NAME="jhu"
     ;;
 2)
