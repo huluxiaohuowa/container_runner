@@ -41,7 +41,7 @@ read -p "Would you like nvidia-smi to be seen in your container? (y/n): " SEEN
 
 
 
-echo -e "\n\n\nWho are you?\n\n0.chem(chem)\n1.胡建星(jhu)\n2.王铎行(hhhh)\n3.赖俊勇(wllg)\n4.夏虓林(ex2l)\n5.杜子腾(streamer)\n6.其他\n"
+echo -e "\n\n\nWho are you?\n\n0.chem(chem)\n1.胡建星(jhu)\n2.王铎行(hhhh)\n3.赖俊勇(wllg)\n4.夏虓林(ex2l)\n5.杜子腾(streamer)\n6.杨波\n7.其他"
 read -p "Type your index and press enter: " IDX_USER
 case $IDX_USER in
 0)
@@ -85,6 +85,13 @@ case $IDX_USER in
     P_JUPYTER=15021
     # P_CON=15023
     USER_NAME="streamer"
+    ;;
+6)
+    P_CON=19022
+    P_SSH=19020
+    P_JUPYTER=19021
+    # P_CON=15023
+    USER_NAME="yangbo"
     ;;    
 *)
 read -p "Type in your container name and press enter: " USER_NAME
