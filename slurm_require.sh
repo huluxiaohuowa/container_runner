@@ -3,7 +3,7 @@
 
 echo -e "\n\nAvailable versions of images are: \n"
 
-slurm/bin/sinfo | awk '{print $1}'
+sinfo | awk '{print $1}'
 
 read -p "Input your Partition and press ENTER: " PART
 read -p "Input task num and press ENTER: " TASK
