@@ -34,6 +34,7 @@ set HF_ENDPOINT https://hf-mirror.com
 
 # Aliases
 alias jl="HF_ENDPOINT=https://hf-mirror.com RERANKER_DIR=/home/jhu/dev/models/bge-reranker-v2-m3 LD_PRELOAD=/usr/lib/x86_64-linux-gnu/libGLdispatch.so.0 NLTK_DATA=/home/jhu/nltk_data jupyter lab"
+alias newenv="bash /home/jhu/dev/repos/container_runner/newenv.sh"
 alias catcon="/home/jhu/dev/repos/container_runner/catcon.sh"
 alias pve="ssh 192.168.1.220"
 alias netop="sudo nethogs -d 2"
