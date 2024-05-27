@@ -22,6 +22,9 @@ set PATH $PATH $CUDA_HOME/bin
 set MPATH /home/jhu/dev/models
 set HF_ENDPOINT https://hf-mirror.com
 
+set https_proxy http://127.0.0.1:7890
+set http_proxy http://127.0.0.1:7890
+
 # Load HomeBrew
 # export HOMEBREW_NO_AUTO_UPDATE=1
 # export HOMEBREW_BOTTLE_DOMAIN=https://mirrors.ustc.edu.cn/homebrew-bottles
@@ -32,6 +35,7 @@ set HF_ENDPOINT https://hf-mirror.com
 #   set PATH /home/linuxbrew/.linuxbrew/bin $PATH
 # end
 
+set HF_ENDPOINT https://hf-mirror.com
 # Aliases
 alias jl="HF_ENDPOINT=https://hf-mirror.com RERANKER_DIR=/home/jhu/dev/models/bge-reranker-v2-m3 LD_PRELOAD=/usr/lib/x86_64-linux-gnu/libGLdispatch.so.0 NLTK_DATA=/home/jhu/nltk_data jupyter lab"
 alias newenv="bash /home/jhu/dev/repos/container_runner/newenv.sh"
