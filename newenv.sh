@@ -4,7 +4,6 @@ read -p "Input your python version of this environment and press ENTER: " PYVER
 
 mamba create --prefix=~/dev/envs/$ENV python=$PYVER -y
 
-mamba activate $ENV
-pip install ipykernel
+mamba activate $ENV && pip install ipykernel
 python -m ipykernel install --user --name $ENV
 mamba deactivate
