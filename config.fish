@@ -36,8 +36,12 @@ set http_proxy http://127.0.0.1:7890
 # end
 
 set HF_ENDPOINT https://hf-mirror.com
+set NEBULA_USER root
+set NEBULA_PASSWORD nebula
+set NEBULA_ADDRESS 127.0.0.1:9669
+
 # Aliases
-alias jl="HF_ENDPOINT=https://hf-mirror.com RERANKER_DIR=/home/jhu/dev/models/bge-reranker-v2-m3 LD_PRELOAD=/usr/lib/x86_64-linux-gnu/libGLdispatch.so.0 NLTK_DATA=/home/jhu/nltk_data jupyter lab"
+alias jl="NEBULA_USER=root NEBULA_PASSWORD=nebula NEBULA_ADDRESS=127.0.0.1:9669 HF_ENDPOINT=https://hf-mirror.com RERANKER_DIR=/home/jhu/dev/models/bge-reranker-v2-m3 LD_PRELOAD=/usr/lib/x86_64-linux-gnu/libGLdispatch.so.0 NLTK_DATA=/home/jhu/nltk_data jupyter lab"
 alias newenv="bash /home/jhu/dev/repos/container_runner/newenv.sh"
 alias rmenv="bash /home/jhu/dev/repos/container_runner/rmenv.sh"
 alias catcon="/home/jhu/dev/repos/container_runner/catcon.sh"
