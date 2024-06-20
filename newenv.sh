@@ -6,5 +6,5 @@ mamba create --prefix=~/dev/envs/$ENV python=$PYVER -y
 
 mamba activate $ENV && pip install ipykernel
 python -m ipykernel install --user --name $ENV
-mamba install -c -n $ENV conda-forge ipywidgets
+mamba install -n $ENV -c conda-forge ipywidgets -y
 mamba deactivate

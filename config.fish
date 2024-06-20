@@ -180,3 +180,9 @@ if test -f "/home/jhu/dev/envs/conda/etc/fish/conf.d/mamba.fish"
     source "/home/jhu/dev/envs/conda/etc/fish/conf.d/mamba.fish"
 end
 # <<< conda initialize <<<
+
+set NGC_API_KEY azlkaDFqbnN1MTM3cjlrbzhzZDg4bjV0MDQ6NWYwODU2ZTUtYzQ5My00YzAzLWE2NDgtOTY4YzUwN2U1MGQ1
+set CONTAINER_NAME llama3-8b-instruct
+set PATH $PATH /home/jhu/dev/repos/ngc-cli
+
+# Choose a LLM NIM Image from NGC
