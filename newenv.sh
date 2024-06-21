@@ -4,7 +4,8 @@ read -p "Input your python version of this environment and press ENTER: " PYVER
 
 mamba create --prefix=~/dev/envs/$ENV python=$PYVER -y
 
-mamba activate $ENV && pip install ipykernel
+conda activate $ENV && pip install ipykernel
 python -m ipykernel install --user --name $ENV
-mamba install -n $ENV -c conda-forge ipywidgets -y
-mamba deactivate
+pip install ipywidgets
+conda deactivate
+jupyter kernelspec install ~/dev/envs/$ENV --user
