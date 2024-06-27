@@ -2,10 +2,10 @@
 read -p "Input your env name and press ENTER: " ENV
 read -p "Input your python version of this environment and press ENTER: " PYVER
 
-export CONDA_EXE='~/dev/envs/conda/bin/conda'
-export _CE_M=''
-export _CE_CONDA=''
-export CONDA_PYTHON_EXE='~/dev/envs/conda/bin/python'
+export CONDA_EXE="${HOME}/dev/envs/conda/bin/conda"
+export _CE_M=""
+export _CE_CONDA=""
+export CONDA_PYTHON_EXE="${HOME}/dev/envs/conda/bin/python"
 
 __conda_exe() (
     "$CONDA_EXE" $_CE_M $_CE_CONDA "$@"
@@ -98,7 +98,7 @@ mamba() {
     esac
 }
 
-mamba create --prefix=~/dev/envs/$ENV python=$PYVER -y
+mamba create --prefix=$HOME/dev/envs/$ENV python=$PYVER -y
 mamba activate $ENV
 pip install ipykernel
 python -m ipykernel install --user --name $ENV
