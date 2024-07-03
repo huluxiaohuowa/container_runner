@@ -10,7 +10,7 @@ export EDITOR="vi"
 set PATH /opt/homebrew/bin $PATH
 set PATH /opt/homebrew/opt/openssl@3/bin $PATH
 set PKG_CONFIG_PATH /opt/homebrew/opt/openssl@3/lib/pkgconfig
-set LD_LIBRARY_PATH /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/lib $LD_LIBRARY_PATH
+set LD_LIBRARY_PATH /usr/lib/aarch64-linux-gnu /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/lib $LD_LIBRARY_PATH
 set DYLD_FALLBACK_LIBRARY_PATH /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/lib $DYLD_FALLBACK_LIBRARY_PATH
 set ALIYUNPAN_CONFIG_DIR /home/jhu/aliyunpan
 set PATH /home/jhu/dev/bins $PATH
@@ -41,7 +41,11 @@ set NEBULA_PASSWORD nebula
 set NEBULA_ADDRESS 127.0.0.1:9669
 
 # Aliases
-alias jl="NEBULA_USER=root NEBULA_PASSWORD=nebula NEBULA_ADDRESS=127.0.0.1:9669 HF_ENDPOINT=https://hf-mirror.com RERANKER_DIR=/home/jhu/dev/models/bge-reranker-v2-m3 LD_PRELOAD=/usr/lib/x86_64-linux-gnu/libGLdispatch.so.0 NLTK_DATA=/home/jhu/nltk_data jupyter lab"
+if string match -q "*amd*" $PLAT
+    alias jl="NEBULA_USER=root NEBULA_PASSWORD=nebula NEBULA_ADDRESS=127.0.0.1:9669 HF_ENDPOINT=https://hf-mirror.com RERANKER_DIR=/home/jhu/dev/models/bge-reranker-v2-m3 LD_PRELOAD=/usr/lib/x86_64-linux-gnu/libGLdispatch.so.0 NLTK_DATA=/home/jhu/nltk_data jupyter lab"
+else if string match -q "*arm*" $PLAT
+    alias jl="NEBULA_USER=root NEBULA_PASSWORD=nebula NEBULA_ADDRESS=127.0.0.1:9669 HF_ENDPOINT=https://hf-mirror.com RERANKER_DIR=/home/jhu/dev/models/bge-reranker-v2-m3 LD_PRELOAD=/usr/lib/aarch64-linux-gnu/libGLdispatch.so.0 NLTK_DATA=/home/jhu/nltk_data jupyter lab"
+end
 alias newenv="bash /home/jhu/dev/repos/container_runner/newenv.sh"
 alias rmenv="bash /home/jhu/dev/repos/container_runner/rmenv.sh"
 alias catcon="/home/jhu/dev/repos/container_runner/catcon.sh"
