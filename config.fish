@@ -85,6 +85,7 @@ alias sub="git submodule update --recursive --remote"
 alias gpr="git pull --recurse-submodules"
 alias nvtop="watch -n 0.5 nvidia-smi"
 # alias pip='noglob pip'
+alias pi="pip install --proxy=http://192.168.1.39:7890 "
 
 # Venv auto actiavation
 function __auto_source_venv --on-variable PWD --description "Activate/Deactivate virtualenv on directory change"
