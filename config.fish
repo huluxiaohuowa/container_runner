@@ -192,3 +192,4 @@ set CONTAINER_NAME llama3-8b-instruct
 set PATH $PATH /home/jhu/dev/repos/ngc-cli
 
 # Choose a LLM NIM Image from NGC
+umask 002
