@@ -56,8 +56,8 @@ alias apt="sudo apt"
 alias dc="docker compose"
 alias dul="du -sh (ls -A)"
 alias pc=podman-compose
-alias gc0="git clone --depth=1 --branch=main"
-alias gc1="git clone --depth=1 --branch=master"
+# alias gc0="git clone --depth=1 --branch=main"
+# alias gc1="git clone --depth=1 --branch=master"
 alias t='tmux -2'
 alias tmux='tmux -2'
 alias ta="tmux a -t"
@@ -105,6 +105,29 @@ function __auto_source_venv --on-variable PWD --description "Activate/Deactivate
   else if not test -z "$VIRTUAL_ENV" -o -e "$gitdir/.venv"
     deactivate
   end
+end
+
+function gc1
+    if test (count $argv) -ne 1
+        echo "Usage: gc <repository_url>"
+        return 1
+    end
+
+    # 克隆仓库但不检出任何分支，并设置深度为 1
+    git clone --depth=1 --no-checkout $argv[1]
+    if test $status -ne 0
+        return $status
+    end
+
+    # 进入仓库目录
+    set repo_dir (basename $argv[1] .git)
+    cd $repo_dir
+
+    # 获取远程仓库的默认分支
+    set default_branch (git symbolic-ref refs/remotes/origin/HEAD | sed 's@^refs/remotes/origin/@@')
+
+    # 检出默认分支
+    git checkout $default_branch
 end
 
 # Proxy switcher
