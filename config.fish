@@ -153,6 +153,55 @@ function proxy
   echo "Current: http_proxy=$http_proxy https_proxy=$https_proxy"
 end
 
+function rmsub
+    set -l submodule_path $argv[1]
+
+    if test -z "$submodule_path"
+        echo "Usage: remove_git_submodule <submodule-path>"
+        return 1
+    end
+
+    echo "Removing submodule at path: $submodule_path"
+
+    # Remove the submodule entry from .git/config
+    git submodule deinit -f $submodule_path
+    if test $status -ne 0
+        echo "Failed to deinit submodule"
+        return 1
+    end
+
+    # Remove the submodule directory from the superproject .git/modules directory
+    set -l submodule_name (string replace -r '.*\/' '' $submodule_path)
+    rm -rf .git/modules/$submodule_name
+    if test $status -ne 0
+        echo "Failed to remove submodule directory from .git/modules"
+        return 1
+    end
+
+    # Remove the submodule entry from .gitmodules and .git/config
+    git config -f .gitmodules --remove-section submodule.$submodule_path
+    if test $status -ne 0
+        echo "Failed to remove submodule entry from .gitmodules"
+        return 1
+    end
+
+    git config -f .git/config --remove-section submodule.$submodule_path
+    if test $status -ne 0
+        echo "Failed to remove submodule entry from .git/config"
+        return 1
+    end
+
+    # Remove the submodule directory from the working tree and stage the removal
+    git rm -f $submodule_path
+    if test $status -ne 0
+        echo "Failed to remove submodule directory from working tree"
+        return 1
+    end
+
+    echo "Submodule removed successfully!"
+end
+
+
 # Load fzf config
 test -f ~/.dotfiles/fzf.fish && source ~/.dotfiles/fzf.fish
 
