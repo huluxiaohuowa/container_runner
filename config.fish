@@ -87,6 +87,9 @@ alias gcr="git clone --recursive"
 alias nvtop="watch -n 0.5 nvidia-smi"
 # alias pip='noglob pip'
 alias pi="pip install --proxy=http://127.0.0.1:7890 "
+alias ma="mamba activate"
+alias md="mamba deactivate"
+
 
 # Venv auto actiavation
 function __auto_source_venv --on-variable PWD --description "Activate/Deactivate virtualenv on directory change"
