@@ -16,7 +16,7 @@ set ALIYUNPAN_CONFIG_DIR /home/jhu/aliyunpan
 set PATH /home/jhu/dev/bins $PATH
 
 set CUDA_HOME /usr/local/cuda
-set LD_LIBRARY_PATH $LD_LIBRARY_PATH /usr/local/cuda/lib64 /usr/local/cuda/extras/CUPTI/lib64
+set LD_LIBRARY_PATH $LD_LIBRARY_PATH /usr/local/cuda/lib64 /usr/local/cuda/extras/CUPTI/lib64 /usr/lib/x86_64-linux-gnu
 set PATH $PATH $CUDA_HOME/bin
 
 set MPATH /home/jhu/dev/models
@@ -269,3 +269,8 @@ set PATH $PATH /home/jhu/dev/repos/ngc-cli
 
 # Choose a LLM NIM Image from NGC
 umask 002
+set HTTP_PROXY "http://192.168.1.90:7897"
+set HTTPS_PROXY "http://192.168.1.90:7897"
+set http_proxy "http://192.168.1.90:7897"
+set https_proxy "http://192.168.1.90:7897"
+set PATH /home/jhu/dev/bins/ppython.sh $PATH
