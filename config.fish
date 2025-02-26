@@ -86,7 +86,7 @@ alias gpr="git pull --recurse-submodules"
 alias gcr="git clone --recursive"
 alias nvtop="watch -n 0.5 nvidia-smi"
 # alias pip='noglob pip'
-alias pi="pip install --proxy=http://192.168.1.91:7897 "
+alias pi="pip install --proxy=http://192.168.1.91:7897"
 alias ma="mamba activate"
 alias md="mamba deactivate"
 
@@ -269,7 +269,7 @@ set PATH $PATH /home/jhu/dev/repos/ngc-cli
 
 # Choose a LLM NIM Image from NGC
 umask 002
-set HTTP_PROXY "http://127.0.0.1:7890"
-set HTTPS_PROXY "http://127.0.0.1:7890"
-set http_proxy "http://127.0.0.1:7890"
-set https_proxy "http://127.0.01:7890"
+set HTTP_PROXY "http://192.168.1.91:7897"
+set HTTPS_PROXY "http://192.168.1.91:7897"
+set http_proxy "http://192.168.1.91:7897"
+set https_proxy "http://192.168.1.91:7897"
