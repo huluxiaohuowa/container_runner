@@ -273,3 +273,8 @@ set HTTP_PROXY "http://192.168.1.91:7897"
 set HTTPS_PROXY "http://192.168.1.91:7897"
 set http_proxy "http://192.168.1.91:7897"
 set https_proxy "http://192.168.1.91:7897"
+export XMAKE_ROOTDIR="/home/jhu/.local/bin"
+export XMAKE_PROGRAM_DIR="/home/jhu/.local/share/xmake"
+# export PATH="$XMAKE_ROOTDIR:$PATH"
+test $FISH_VERSION && test -f "$XMAKE_PROGRAM_DIR/scripts/profile-unix.fish" && source "$XMAKE_PROGRAM_DIR/scripts/profile-unix.fish" && exit 0
+test -f "$XMAKE_PROGRAM_DIR/scripts/profile-unix.sh" && source "$XMAKE_PROGRAM_DIR/scripts/profile-unix.sh"
