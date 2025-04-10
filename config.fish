@@ -22,9 +22,6 @@ set PATH $PATH $CUDA_HOME/bin
 set MPATH /home/jhu/dev/models
 set HF_ENDPOINT https://hf-mirror.com
 
-set https_proxy http://127.0.0.1:7890
-set http_proxy http://127.0.0.1:7890
-
 # Load HomeBrew
 # export HOMEBREW_NO_AUTO_UPDATE=1
 # export HOMEBREW_BOTTLE_DOMAIN=https://mirrors.ustc.edu.cn/homebrew-bottles
@@ -269,7 +266,10 @@ set PATH $PATH /home/jhu/dev/repos/ngc-cli
 
 # Choose a LLM NIM Image from NGC
 umask 002
+<<<<<<< HEAD
 set HTTP_PROXY "http://192.168.1.91:7897"
 set HTTPS_PROXY "http://192.168.1.91:7897"
 set http_proxy "http://192.168.1.91:7897"
 set https_proxy "http://192.168.1.91:7897"
+=======
+>>>>>>> 7bb9ff7 (lalal)
