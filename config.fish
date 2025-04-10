@@ -266,10 +266,3 @@ set PATH $PATH /home/jhu/dev/repos/ngc-cli
 
 # Choose a LLM NIM Image from NGC
 umask 002
-<<<<<<< HEAD
-set HTTP_PROXY "http://192.168.1.91:7897"
-set HTTPS_PROXY "http://192.168.1.91:7897"
-set http_proxy "http://192.168.1.91:7897"
-set https_proxy "http://192.168.1.91:7897"
-=======
->>>>>>> 7bb9ff7 (lalal)
