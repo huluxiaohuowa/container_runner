@@ -54,7 +54,7 @@ alias pve="ssh 192.168.1.220"
 alias netop="sudo nethogs -d 2"
 alias apt="sudo apt"
 alias dc="docker compose"
-alias dul="du -sh (ls -A)"
+alias dul="sudo du -sh (ls -A)"
 alias pc=podman-compose
 # alias gc0="git clone --depth=1 --branch=main"
 # alias gc1="git clone --depth=1 --branch=master"
