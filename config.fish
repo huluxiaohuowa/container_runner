@@ -263,6 +263,11 @@ end
 set NGC_API_KEY azlkaDFqbnN1MTM3cjlrbzhzZDg4bjV0MDQ6NWYwODU2ZTUtYzQ5My00YzAzLWE2NDgtOTY4YzUwN2U1MGQ1
 set CONTAINER_NAME llama3-8b-instruct
 set PATH $PATH /home/jhu/dev/repos/ngc-cli
+set PATH $PATH export $HOME/.bun/bin
 
 # Choose a LLM NIM Image from NGC
 umask 002
+
+# bun
+set --export BUN_INSTALL "$HOME/.bun"
+set --export PATH $BUN_INSTALL/bin $PATH
