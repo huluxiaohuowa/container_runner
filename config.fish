@@ -53,6 +53,7 @@ alias apt="sudo apt"
 alias dc="docker compose"
 alias dul="sudo du -sh (ls -A)"
 alias pc=podman-compose
+alias jt="sudo jtop"
 # alias gc0="git clone --depth=1 --branch=main"
 # alias gc1="git clone --depth=1 --branch=master"
 alias t='tmux -2'
