@@ -14,6 +14,7 @@ set LD_LIBRARY_PATH /usr/lib/aarch64-linux-gnu /Library/Developer/CommandLineToo
 set DYLD_FALLBACK_LIBRARY_PATH /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/lib $DYLD_FALLBACK_LIBRARY_PATH
 set ALIYUNPAN_CONFIG_DIR /home/jhu/aliyunpan
 set PATH /home/jhu/dev/bins $PATH
+set PATH /home/jhu/dev/bins/ffmpeg $PATH
 
 set CUDA_HOME /usr/local/cuda
 set LD_LIBRARY_PATH $LD_LIBRARY_PATH /usr/local/cuda/lib64 /usr/local/cuda/extras/CUPTI/lib64 /usr/lib/x86_64-linux-gnu
@@ -246,19 +247,19 @@ set -x LC_CTYPE en_US.UTF-8
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
-if test -f /home/jhu/dev/envs/conda/bin/conda
-    eval /home/jhu/dev/envs/conda/bin/conda "shell.fish" "hook" $argv | source
-else
-    if test -f "/home/jhu/dev/envs/conda/etc/fish/conf.d/conda.fish"
-        . "/home/jhu/dev/envs/conda/etc/fish/conf.d/conda.fish"
-    else
-        set -x PATH "/home/jhu/dev/envs/conda/bin" $PATH
-    end
-end
+# if test -f /home/jhu/dev/envs/conda/bin/conda
+#     eval /home/jhu/dev/envs/conda/bin/conda "shell.fish" "hook" $argv | source
+# else
+#    if test -f "/home/jhu/dev/envs/conda/etc/fish/conf.d/conda.fish"
+#        . "/home/jhu/dev/envs/conda/etc/fish/conf.d/conda.fish"
+#    else
+#        set -x PATH "/home/jhu/dev/envs/conda/bin" $PATH
+#    end
+# end
 
-if test -f "/home/jhu/dev/envs/conda/etc/fish/conf.d/mamba.fish"
-    source "/home/jhu/dev/envs/conda/etc/fish/conf.d/mamba.fish"
-end
+#if test -f "/home/jhu/dev/envs/conda/etc/fish/conf.d/mamba.fish"
+#    source "/home/jhu/dev/envs/conda/etc/fish/conf.d/mamba.fish"
+#end
 # <<< conda initialize <<<
 
 set NGC_API_KEY azlkaDFqbnN1MTM3cjlrbzhzZDg4bjV0MDQ6NWYwODU2ZTUtYzQ5My00YzAzLWE2NDgtOTY4YzUwN2U1MGQ1
@@ -272,3 +273,4 @@ umask 002
 # bun
 set --export BUN_INSTALL "$HOME/.bun"
 set --export PATH $BUN_INSTALL/bin $PATH
+fish_add_path /home/jhu/.pixi/bin
