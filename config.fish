@@ -14,7 +14,7 @@ set LD_LIBRARY_PATH /usr/lib/aarch64-linux-gnu /Library/Developer/CommandLineToo
 set DYLD_FALLBACK_LIBRARY_PATH /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/lib $DYLD_FALLBACK_LIBRARY_PATH
 set ALIYUNPAN_CONFIG_DIR /home/jhu/aliyunpan
 set PATH /home/jhu/dev/bins $PATH
-set PATH /home/jhu/dev/bins/ffmpeg $PATH
+set PATH /home/jhu/dev/bins/ffmpeg/bin $PATH
 
 set CUDA_HOME /usr/local/cuda
 set LD_LIBRARY_PATH $LD_LIBRARY_PATH /usr/local/cuda/lib64 /usr/local/cuda/extras/CUPTI/lib64 /usr/lib/x86_64-linux-gnu
@@ -275,3 +275,5 @@ umask 002
 set --export BUN_INSTALL "$HOME/.bun"
 set --export PATH $BUN_INSTALL/bin $PATH
 fish_add_path /home/jhu/.pixi/bin
+
+eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
