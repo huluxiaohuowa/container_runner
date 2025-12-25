@@ -9,51 +9,39 @@ if [[ -z "${ENV}" || -z "${PYVER}" ]]; then
   exit 1
 fi
 
-# ========= 检测架构并映射到 pixi 的平台名 =========
 ARCH=$(uname -m)
 case "$ARCH" in
-  x86_64|amd64)
-    PLATFORM="linux-64"
-    ;;
-  aarch64|arm64)
-    PLATFORM="linux-aarch64"
-    ;;
-  armv7l)
-    PLATFORM="linux-armv7l"
-    ;;
-  armv6l)
-    PLATFORM="linux-armv6l"
-    ;;
-  *)
-    echo "Unsupported architecture: $ARCH"
-    echo "Please set PLATFORM manually."
-    exit 1
-    ;;
+  x86_64|amd64)   PLATFORM="linux-64" ;;
+  aarch64|arm64)  PLATFORM="linux-aarch64" ;;
+  armv7l)         PLATFORM="linux-armv7l" ;;
+  armv6l)         PLATFORM="linux-armv6l" ;;
+  *) echo "Unsupported architecture: $ARCH"; exit 1 ;;
 esac
 
-echo "Detected arch: $ARCH  -> pixi platform: $PLATFORM"
-
-# 基础目录（你原来写的是 /home/jhu/.pixi/envs）
 BASE_DIR="$HOME/.pixi/envs"
 ENV_DIR="${BASE_DIR}/${ENV}"
-
 mkdir -p "$ENV_DIR"
 cd "$ENV_DIR"
 
-# 如果已经有 pixi.toml，避免覆盖
 if [[ -f "pixi.toml" ]]; then
   echo "pixi.toml already exists in $ENV_DIR, aborting to avoid overwrite."
   exit 1
 fi
 
-# 初始化 pixi 项目并安装 python + ipykernel
 pixi init --platform "$PLATFORM"
-pixi add "python=${PYVER}"
+# 建议显式设置 channel，避免不同机器行为差异
+pixi add -c conda-forge "python=${PYVER}"
 pixi add ipykernel
 
-# 注册到 Jupyter
+# ★关键：注册前先清理同名 kernelspec，避免旧的残留导致“选错内核”
+KDIR="$HOME/.local/share/jupyter/kernels/${ENV}"
+if [[ -d "$KDIR" ]]; then
+  rm -rf "$KDIR"
+fi
+
+# ★关键：给 display-name 加个标识，防止你以后又出现 agent / agent-pixi 这种混淆
 pixi run python -m ipykernel install --user \
   --name "$ENV" \
-  --display-name "$ENV"
+  --display-name "${ENV} (pixi)"
 
-echo "Done. New pixi env '$ENV' created in $ENV_DIR and Jupyter kernel '$ENV' registered."
+echo "Done. New pixi env '$ENV' created in $ENV_DIR and Jupyter kernel '${ENV} (pixi)' registered."
