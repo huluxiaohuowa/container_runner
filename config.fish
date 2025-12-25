@@ -47,6 +47,7 @@ else if string match -q "*arm*" $PLAT
 end
 alias newenv="bash /home/jhu/dev/repos/container_runner/newenv.sh"
 alias rmenv="bash /home/jhu/dev/repos/container_runner/rmenv.sh"
+alias pixict="bash /home/jhu/dev/repos/container_runner/pixictl.sh"
 alias catcon="/home/jhu/dev/repos/container_runner/catcon.sh"
 alias pve="ssh 192.168.1.220"
 alias netop="sudo nethogs -d 2"
