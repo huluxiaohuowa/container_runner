@@ -278,4 +278,4 @@ set --export BUN_INSTALL "$HOME/.bun"
 set --export PATH $BUN_INSTALL/bin $PATH
 fish_add_path /home/jhu/.pixi/bin
 
-. /home/jhu/clashctl/scripts/cmd/clashctl.fish
+test -f /home/jhu/clashctl/scripts/cmd/clashctl.fish; and source /home/jhu/clashctl/scripts/cmd/clashctl.fish
