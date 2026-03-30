@@ -204,6 +204,10 @@ function rmsub
     echo "Submodule removed successfully!"
 end
 
+function fixwinexe
+    find $argv -type f \( -iname "*.exe" -o -iname "*.cmd" -o -name "*.sh" \) -exec chmod +x {} \;
+end
+
 # ===== optional fzf config =====
 if test -f ~/.dotfiles/fzf.fish
     source ~/.dotfiles/fzf.fish
