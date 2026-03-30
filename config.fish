@@ -89,6 +89,7 @@ alias nvtop="watch -n 0.5 nvidia-smi"
 alias pi="pip install --proxy=http://192.168.1.222:7897"
 alias ma="mamba activate"
 alias md="mamba deactivate"
+alias cl="sudo socat TCP-LISTEN:7892,fork,reuseaddr,bind=0.0.0.0 TCP:127.0.0.1:7890"
 
 
 # Venv auto actiavation
@@ -277,3 +278,4 @@ set --export BUN_INSTALL "$HOME/.bun"
 set --export PATH $BUN_INSTALL/bin $PATH
 fish_add_path /home/jhu/.pixi/bin
 
+. /home/jhu/clashctl/scripts/cmd/clashctl.fish
