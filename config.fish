@@ -254,3 +254,4 @@ end
 if test -f /home/jhu/clashctl/scripts/cmd/clashctl.fish
     source /home/jhu/clashctl/scripts/cmd/clashctl.fish
 end
+fish_vi_key_bindings
