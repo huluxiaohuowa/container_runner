@@ -273,4 +273,8 @@ if not contains "/data/jhu/dev/envs/conda/bin" $PATH
 end
 
 $MAMBA_EXE shell hook --shell fish --root-prefix $MAMBA_ROOT_PREFIX | source
+
+if status is-interactive
+    mamba activate base
+end
 # <<< mamba initialize <<<
