@@ -251,14 +251,26 @@ umask 002
 set -gx BUN_INSTALL "$HOME/.bun"
 set -gx PATH $BUN_INSTALL/bin $PATH
 
-if functions -q fish_add_path
-    fish_add_path /home/jhu/.pixi/bin
-else
-    set -gx PATH /home/jhu/.pixi/bin $PATH
-end
+# if functions -q fish_add_path
+#     fish_add_path /home/jhu/.pixi/bin
+# else
+#     set -gx PATH /home/jhu/.pixi/bin $PATH
+# end
 
 # optional local integrations
 if test -f /home/jhu/clashctl/scripts/cmd/clashctl.fish
     source /home/jhu/clashctl/scripts/cmd/clashctl.fish
 end
 fish_vi_key_bindings
+
+# >>> mamba initialize >>>
+# !! Contents within this block are managed by 'mamba shell init' !!
+set -gx MAMBA_EXE "/data/jhu/dev/envs/conda/bin/mamba"
+set -gx MAMBA_ROOT_PREFIX "/data/jhu/dev"
+
+if not contains "/data/jhu/dev/envs/conda/bin" $PATH
+    set -gx PATH "/data/jhu/dev/envs/conda/bin" $PATH
+end
+
+$MAMBA_EXE shell hook --shell fish --root-prefix $MAMBA_ROOT_PREFIX | source
+# <<< mamba initialize <<<

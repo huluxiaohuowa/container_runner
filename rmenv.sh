@@ -20,25 +20,25 @@ else
 fi
 
 echo
-echo "=== Remove pixi env directory (legacy layout) ==="
+echo "=== Remove mamba env directory ==="
 
-BASE_DIR="$HOME/.pixi/envs"
+BASE_DIR="$HOME/dev/envs"
 ENV_DIR="$BASE_DIR/$ENV"
 
 if [[ -d "$ENV_DIR" ]]; then
-  echo "Found pixi env directory: $ENV_DIR"
+  echo "Found mamba env directory: $ENV_DIR"
   read -p "This directory will be removed recursively. Continue? [y/N]: " CONFIRM
   case "$CONFIRM" in
     y|Y|yes|YES)
       rm -rf "$ENV_DIR"
-      echo "Removed pixi env directory: $ENV_DIR"
+      echo "Removed mamba env directory: $ENV_DIR"
       ;;
     *)
-      echo "Skip removing pixi env directory."
+      echo "Skip removing mamba env directory."
       ;;
   esac
 else
-  echo "No pixi env directory found at: $ENV_DIR, skip."
+  echo "No mamba env directory found at: $ENV_DIR, skip."
 fi
 
 echo
