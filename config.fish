@@ -90,7 +90,9 @@ alias ma="mamba activate"
 alias md="mamba deactivate"
 alias cl="sudo socat TCP-LISTEN:7892,fork,reuseaddr,bind=0.0.0.0 TCP:127.0.0.1:7890"
 
-# ===== venv auto activation =====
+
+
+# Venv auto actiavation
 function __auto_source_venv --on-variable PWD --description "Activate/Deactivate virtualenv on directory change"
     status --is-command-substitution; and return
 
@@ -236,11 +238,12 @@ set -gx LC_CTYPE en_US.UTF-8
 # end
 # <<< conda initialize <<<
 
-set -gx NGC_API_KEY azlkaDFqbnN1MTM3cjlrbzhzZDg4bjV0MDQ6NWYwODU2ZTUtYzQ5My00YzAzLWE2NDgtOTY4YzUwN2U1MGQ1
-set -gx CONTAINER_NAME llama3-8b-instruct
-set -gx PATH $PATH /home/jhu/dev/repos/ngc-cli
-set -gx PATH $PATH $HOME/.bun/bin
-set -gx PATH $HOME/.local/bin $PATH
+set NGC_API_KEY azlkaDFqbnN1MTM3cjlrbzhzZDg4bjV0MDQ6NWYwODU2ZTUtYzQ5My00YzAzLWE2NDgtOTY4YzUwN2U1MGQ1
+set CONTAINER_NAME llama3-8b-instruct
+set PATH $PATH /home/jhu/dev/repos/ngc-cli
+set PATH $PATH $HOME/.bun/bin
+set PATH $HOME/.local/bin $PATH
+set PATH $PATH /home/jhu/dev/repos/cc-haha/bin
 
 umask 002
 

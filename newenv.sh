@@ -29,17 +29,23 @@ if [[ -f "pixi.toml" ]]; then
 fi
 
 pixi init --platform "$PLATFORM"
-# 建议显式设置 channel，避免不同机器行为差异
-pixi add -c conda-forge "python=${PYVER}"
+
+# ✔ 正确方式：先加 channel
+pixi project channel add conda-forge
+
+# ✔ 再装 python
+pixi add "python=${PYVER}"
+
+# ✔ 再装 ipykernel
 pixi add ipykernel
 
-# ★关键：注册前先清理同名 kernelspec，避免旧的残留导致“选错内核”
+# 清理旧 kernel
 KDIR="$HOME/.local/share/jupyter/kernels/${ENV}"
 if [[ -d "$KDIR" ]]; then
   rm -rf "$KDIR"
 fi
 
-# ★关键：给 display-name 加个标识，防止你以后又出现 agent / agent-pixi 这种混淆
+# 注册 kernel
 pixi run python -m ipykernel install --user \
   --name "$ENV" \
   --display-name "${ENV} (pixi)"
