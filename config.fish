@@ -47,6 +47,7 @@ else if string match -q "*arm*" $__plat
     alias jl="NEBULA_USER=root NEBULA_PASSWORD=nebula NEBULA_ADDRESS=127.0.0.1:9669 HF_ENDPOINT=https://hf-mirror.com RERANKER_DIR=/home/jhu/dev/models/bge-reranker-v2-m3 LD_PRELOAD=/usr/lib/aarch64-linux-gnu/libGLdispatch.so.0 NLTK_DATA=/home/jhu/nltk_data jupyter lab"
 end
 
+alias claude="/home/jhu/dev/repos/cc-haha/bin/claude-haha"
 alias newenv="bash /home/jhu/dev/repos/container_runner/newenv.sh"
 alias rmenv="bash /home/jhu/dev/repos/container_runner/rmenv.sh"
 alias pixict="bash /home/jhu/dev/repos/container_runner/pixictl.sh"
@@ -278,3 +279,4 @@ if status is-interactive
     mamba activate base
 end
 # <<< mamba initialize <<<
+
