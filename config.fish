@@ -265,11 +265,11 @@ fish_vi_key_bindings
 
 # >>> mamba initialize >>>
 # !! Contents within this block are managed by 'mamba shell init' !!
-set -gx MAMBA_EXE "/data/jhu/dev/envs/conda/bin/mamba"
-set -gx MAMBA_ROOT_PREFIX "/data/jhu/dev"
+set -gx MAMBA_EXE "/home/jhu/dev/envs/conda/bin/mamba"
+set -gx MAMBA_ROOT_PREFIX "/home/jhu/dev"
 
-if not contains "/data/jhu/dev/envs/conda/bin" $PATH
-    set -gx PATH "/data/jhu/dev/envs/conda/bin" $PATH
+if not contains "/home/jhu/dev/envs/conda/bin" $PATH
+    set -gx PATH "/home/jhu/dev/envs/conda/bin" $PATH
 end
 
 $MAMBA_EXE shell hook --shell fish --root-prefix $MAMBA_ROOT_PREFIX | source
